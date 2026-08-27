@@ -17,6 +17,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
 
     public AccountServiceImpl(AccountRepository accountRepository) {
+
         this.accountRepository = accountRepository;
     }
 
@@ -69,12 +70,13 @@ public class AccountServiceImpl implements AccountService {
 
     }
 
+
     @Override
     public List<AccountDto> getAllAccounts() {
         List<Account> accounts = accountRepository.findAll();
     return accounts.stream().map((account) -> AccountMapper.mapToAccountDto(account))
             .collect(Collectors.toList());
-//        return List.of();
+//        return List.of();i
     }
 
     @Override

@@ -55,6 +55,8 @@ public class AccountControler {
         AccountDto accountDto = accountService.withdraw(id, amount);
         return ResponseEntity.ok(accountDto);
     }
+
+
     @GetMapping
     public ResponseEntity<List<AccountDto>> getAllAccounts(){
         List<AccountDto> accounts = accountService.getAllAccounts();
