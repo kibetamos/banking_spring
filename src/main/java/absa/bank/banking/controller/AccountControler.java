@@ -19,6 +19,7 @@ public class AccountControler {
     private AccountService accountService;
 
     public AccountControler(AccountService accountService) {
+
         this.accountService = accountService;
     }
 
@@ -27,7 +28,10 @@ public class AccountControler {
     @PostMapping
     public ResponseEntity<AccountDto> addAccount(@RequestBody AccountDto accountDto){
 
-        return new ResponseEntity<>(accountService.createAccount(accountDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(
+                accountService.
+                createAccount(accountDto),
+                HttpStatus.CREATED);
     }
 
 
