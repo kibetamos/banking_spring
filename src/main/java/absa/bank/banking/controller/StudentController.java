@@ -29,6 +29,8 @@ public class StudentController {
                 HttpStatus.CREATED);
     }
 
+
+
     //get student by id
     @GetMapping("/{id}")
     public ResponseEntity<StudentDto> getStudentById(@PathVariable Long id){
