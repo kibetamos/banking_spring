@@ -5,7 +5,10 @@ import absa.bank.banking.entity.Student;
 import absa.bank.banking.mapper.StudentMapper;
 import absa.bank.banking.repository.StudentRepository;
 import absa.bank.banking.service.StudentService;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
 

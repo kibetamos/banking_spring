@@ -24,6 +24,7 @@ public class AccountControler {
     }
 
 
+
     //add account RestAPI
     @PostMapping
     public ResponseEntity<AccountDto> addAccount(@RequestBody AccountDto accountDto){

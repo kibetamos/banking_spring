@@ -8,10 +8,11 @@ public class StudentMapper {
     public static Student mapToStudent(StudentDto studentDto){
         Student student = new Student(
                 studentDto.getId(),
-                studentDto.getfirstName(),
-                studentDto.getsecondName(),
-                studentDto.getcourse()
-//                studentDto.getc
+                studentDto.getFirstName(),
+                studentDto.getSecondName(),
+                studentDto.getCourse(),
+                studentDto.getFeeBalance()
+
 
         );
         return student;
@@ -22,9 +23,11 @@ public class StudentMapper {
 //        studentDto
         StudentDto studentDto = new StudentDto(
                 Student.getId(),
-                Student.getfirstName(),
-                Student.getsecondName(),
-                Student.getcourse()
+                Student.getFirstName(),
+                Student.getSecondName(),
+                Student.getCourse(),
+                Student.getFeeBalance()
+
         );
         return studentDto;
     }
