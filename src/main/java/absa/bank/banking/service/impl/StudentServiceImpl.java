@@ -1,6 +1,7 @@
 package absa.bank.banking.service.impl;
 
 import absa.bank.banking.dto.StudentDto;
+import absa.bank.banking.entity.Account;
 import absa.bank.banking.entity.Student;
 import absa.bank.banking.mapper.AccountMapper;
 import absa.bank.banking.mapper.StudentMapper;
@@ -51,6 +52,21 @@ public class StudentServiceImpl implements StudentService {
                 .map((student) -> StudentMapper
                         .mapToStudentDto(student))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public StudentDto payFees(Long id, double amount) {
+        Student student = studentRepository
+                .findById(id)
+                .orElseThrow(() -> new RuntimeException("Student Does not Exist"));
+
+        double total = student.getFeeBalance() - amount;
+        student.setFeeBalance(total);
+        Student savedStudent = studentRepository.save(student);
+
+        return StudentMapper.mapToStudentDto(savedStudent);
+
+
     }
 
 

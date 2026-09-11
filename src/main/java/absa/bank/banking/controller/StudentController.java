@@ -1,5 +1,6 @@
 package absa.bank.banking.controller;
 
+import absa.bank.banking.dto.AccountDto;
 import absa.bank.banking.dto.StudentDto;
 import absa.bank.banking.service.StudentService;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/students")
@@ -45,6 +47,12 @@ public class StudentController {
         return ResponseEntity.ok(students);
     }
 
+    @PutMapping("{id}/payfees")
+    public ResponseEntity<StudentDto> payFees(@PathVariable Long id, @RequestBody Map<String, Double> request){
+        Double amount = request.get("amount");
+        StudentDto studentDto = studentService.payFees(id, amount);
+        return ResponseEntity.ok(studentDto);
+    }
 
 
 

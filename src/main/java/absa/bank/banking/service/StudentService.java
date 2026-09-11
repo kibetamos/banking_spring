@@ -15,4 +15,8 @@ public interface StudentService {
 //list all the students
     List<StudentDto> getAllStudents();
 
+    // pay fees for student
+
+    StudentDto payFees(Long id, double feeBalance);
+
 }
