@@ -2,10 +2,14 @@ package absa.bank.banking.service.impl;
 
 import absa.bank.banking.dto.StudentDto;
 import absa.bank.banking.entity.Student;
+import absa.bank.banking.mapper.AccountMapper;
 import absa.bank.banking.mapper.StudentMapper;
 import absa.bank.banking.repository.StudentRepository;
 import absa.bank.banking.service.StudentService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -37,6 +41,16 @@ public class StudentServiceImpl implements StudentService {
 
         return StudentMapper.mapToStudentDto(student);
 
+    }
+
+    @Override
+    public List<StudentDto> getAllStudents() {
+        List<Student> students = studentRepository.findAll();
+        return students
+                .stream()
+                .map((student) -> StudentMapper
+                        .mapToStudentDto(student))
+                .collect(Collectors.toList());
     }
 
 
