@@ -47,11 +47,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentDto> getAllStudents() {
         List<Student> students = studentRepository.findAll();
-        return students
-                .stream()
-                .map((student) -> StudentMapper
-                        .mapToStudentDto(student))
-                .collect(Collectors.toList());
+        return students.stream().map((student) -> StudentMapper.mapToStudentDto(student)).collect(Collectors.toList());
     }
 
     @Override
@@ -60,6 +56,9 @@ public class StudentServiceImpl implements StudentService {
                 .findById(id)
                 .orElseThrow(() -> new RuntimeException("Student Does not Exist"));
 
+        if(student.getFeeBalance() < amount){
+            throw new RuntimeException("Fee has fully been paid");
+        }
         double total = student.getFeeBalance() - amount;
         student.setFeeBalance(total);
         Student savedStudent = studentRepository.save(student);

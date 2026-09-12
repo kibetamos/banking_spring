@@ -44,6 +44,7 @@ public class StudentController {
     public ResponseEntity<List<StudentDto>> getAllStudents(){
 
         List<StudentDto> students  = studentService.getAllStudents();
+
         return ResponseEntity.ok(students);
     }
 
