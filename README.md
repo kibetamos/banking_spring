@@ -9,4 +9,5 @@ This is a sample banking app
   - withdraw funds
   - delete account
 
+## How to work with this repo
 
