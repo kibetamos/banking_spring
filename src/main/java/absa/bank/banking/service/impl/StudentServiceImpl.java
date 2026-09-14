@@ -70,5 +70,15 @@ public class StudentServiceImpl implements StudentService {
 
     }
 
+    @Override
+    public void deleteStudent(Long id) {
+        Student student = studentRepository
+                .findById(id)
+                .orElseThrow(() -> new RuntimeException("Student Does not Exist"));
+
+
+
+    }
+
 
 }

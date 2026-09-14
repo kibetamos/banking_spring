@@ -19,4 +19,5 @@ public interface StudentService {
 
     StudentDto payFees(Long id, double feeBalance);
 
+    void deleteStudent(Long id);
 }
