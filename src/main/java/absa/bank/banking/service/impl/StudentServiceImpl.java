@@ -76,7 +76,7 @@ public class StudentServiceImpl implements StudentService {
                 .findById(id)
                 .orElseThrow(() -> new RuntimeException("Student Does not Exist"));
 
-
+        studentRepository.deleteById(id);
 
     }
 

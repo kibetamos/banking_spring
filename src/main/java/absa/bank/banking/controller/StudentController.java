@@ -54,7 +54,12 @@ public class StudentController {
         StudentDto studentDto = studentService.payFees(id, amount);
         return ResponseEntity.ok(studentDto);
     }
+@DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id){
+    studentService.deleteStudent(id);
+    return ResponseEntity.ok("Student is deleted successfully");
 
+}
 
 
 }
